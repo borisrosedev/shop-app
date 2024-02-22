@@ -23,6 +23,11 @@ import {
   faShoppingBag,
   faChevronUp,
   faChevronDown,
+  faCircleCheck,
+  faCircleXmark,
+  faStore
+  
+
 } from "@fortawesome/free-solid-svg-icons";
 
 /* import specific icons */
@@ -42,7 +47,7 @@ const routes = [
     component: ProductsPage,
   },
   {
-    path: "/dashboard/id",
+    path: "/dashboard/:id",
     component: DashboardPage,
     children: [
       {
@@ -68,7 +73,10 @@ library.add(
   faShoppingBag,
   faRightToBracket,
   faChevronDown,
-  faChevronUp
+  faChevronUp,
+  faCircleCheck,
+  faCircleXmark,
+  faStore
 );
 
 const router = createRouter({

@@ -18,7 +18,6 @@ defineProps({
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border: solid lightblue 2px;
 }
 
 </style>

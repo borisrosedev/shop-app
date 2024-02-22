@@ -1,7 +1,7 @@
 <template>
   <article
     class="input-component input-component--type-text"
-    v-if="data.type != 'select' && data.type != 'textarea'"
+    v-if="data.type !== 'select' && data.type !== 'textarea'"
   >
     <label :for="data.name"></label>
     <input :id="data.name" :placeholder="data.placeholder" :type="data.type" />
