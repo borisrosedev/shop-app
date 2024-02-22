@@ -1,48 +1,86 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import { createWebHashHistory, createRouter } from 'vue-router'
-import HomeView from './pages/HomeView.vue';
-import LoginView from './pages/LoginView.vue';
-import ShopView from './pages/ShopView.vue';
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import { createVuePlugin } from "harlem";
+import { createWebHashHistory, createRouter } from "vue-router";
+import HomePage from "./pages/HomePage.vue";
+import LoginPage from "./pages/LoginPage.vue";
+import ProductsPage from "./pages/ProductsPage.vue";
+import NotFoundPage from "./pages/NotFoundPage.vue";
+import DashboardPage from "./pages/DashboardPage.vue";
+import UserProfile from "./pages/UserPages/UserProfile.vue";
+import UserCart from "./pages/UserPages/UserCart.vue";
+import UserProducts from "./pages/UserPages/UserProducts.vue";
+import "./style.css";
+import App from "./App.vue";
 /* import the fontawesome core */
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { library } from "@fortawesome/fontawesome-svg-core";
 
 /* import font awesome icon component */
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faHome, faRightToBracket, faShoppingBag} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {
+  faHome,
+  faRightToBracket,
+  faShoppingBag,
+  faChevronUp,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 /* import specific icons */
 
 const routes = [
-    {
-        path: '/',
-        name: 'home',
-        component: HomeView
-    }, 
-    {
-        path: '/login',
-        component:LoginView
-    },
-    {
-        path: '/shop',
-        component:ShopView
-    }
-
-]
+  {
+    path: "/",
+    name: "home",
+    component: HomePage,
+  },
+  {
+    path: "/login",
+    component: LoginPage,
+  },
+  {
+    path: "/products",
+    component: ProductsPage,
+  },
+  {
+    path: "/dashboard/id",
+    component: DashboardPage,
+    children: [
+      {
+        path: "profile",
+        component: UserProfile,
+      },
+      {
+        path: "cart",
+        component: UserCart,
+      },
+      {
+        path: "products",
+        component: UserProducts,
+      },
+    ],
+  },
+  { path: "/:pathMatch(.*)*", component: NotFoundPage },
+];
 
 /* add icons to the library */
-library.add(faHome,faShoppingBag, faRightToBracket)
+library.add(
+  faHome,
+  faShoppingBag,
+  faRightToBracket,
+  faChevronDown,
+  faChevronUp
+);
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes: routes
-})
+  history: createWebHashHistory(),
+  routes: routes,
+});
 
-const app = createApp(App)
-const pinia = createPinia()
-app.component('font-awesome-icon', FontAwesomeIcon)
-app.use(pinia)
-app.use(router)
-app.mount('#app')
+const app = createApp(App);
+const pinia = createPinia();
+const harlem = createVuePlugin();
+app.component("font-awesome-icon", FontAwesomeIcon);
+app.use(pinia);
+app.use(harlem);
+app.use(router);
+app.mount("#app");

@@ -1,16 +1,12 @@
 <template>
-    <main class="main shop__main">
-        <h1> Shop </h1>
+    <main class="main user-profile__main">
+            User Profile
     </main>
-
 </template>
 <script setup>
+
 </script>
 <style lang="scss" scoped>
 
-.shop__main {
-
-    
-}
 
 </style>
