@@ -62,6 +62,7 @@ const routeHandler = (name) => {
   padding-inline: 10px;
   opacity: 0;
   animation: headerDown 500ms ease-in-out forwards;
+  z-index: 10;
 
   figure {
     width: 40px;
@@ -78,6 +79,10 @@ const routeHandler = (name) => {
     display: flex;
     li {
       margin-inline: 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

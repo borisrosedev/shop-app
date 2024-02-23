@@ -1,6 +1,7 @@
 import {
     createStore
 } from 'harlem';
+import { MongodbService } from '../../services/mongodb.service';
 
 
 const STATE = {
@@ -18,24 +19,14 @@ export const {
 
 
 export const loadProducts = action('load-products', async (mutate) => {
-    const response = await fetch(import.meta.env.VITE_API_URL+'/api/products');
-    const products = await response.json();
-
+    const products = await MongodbService.fetchProducts()
     mutate(state => {
         state.products = products;
     });
 });
 
 export const addProduct = action('add-products', async (data, mutate) => {
-    const response = await fetch(import.meta.env.VITE_API_URL+'/api/products', {
-        method:'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
-    const newProduct = await response.json();
-
+    const newProduct = await MongodbService.storeProduct(data)
     mutate(state => {
         state.products.push(newProduct);
     });

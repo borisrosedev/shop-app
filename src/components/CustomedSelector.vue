@@ -1,12 +1,14 @@
 <template>
   <div class="customed-selector">
     <section>
-      <div class="customed-selector__choice-container"></div>
+      <div class="customed-selector__choice-container">
+        <p>{{ data.fieldValue.length ? data.fieldValue : data.options[0]  }}</p>
+      </div>
       <ul class="customed-selector__options-container" v-if="areOptionsVisible">
         <li
           v-for="(el, index) in data.options"
           :key="index"
-          @click="clickHandler(el)"
+          @click="(e) => inputHandler(e, el)"
         >
           {{ el }}
         </li>
@@ -21,7 +23,7 @@
 <script setup>
 defineProps({
   data: Object,
-  clickHandler: Function,
+  inputHandler: Function,
 });
 
 const areOptionsVisible = ref(false)

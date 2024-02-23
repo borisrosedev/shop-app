@@ -22,6 +22,12 @@ defineProps({
   &--small {
     padding: 8px 20px;
   }
+
+  transition: all 500ms ease-in-out;
+
+  &:hover {
+    background-color: var(--primary-color);
+  }
 }
 
 </style>
