@@ -18,15 +18,16 @@ export const {
 } = createStore('products', STATE);
 
 
-export const loadProducts = action('load-products', async (mutate) => {
-    const products = await MongodbService.fetchProducts()
+export const loadProducts = action('load-products', async (_, mutate) => {
+    const products = await MongodbService.fetchProducts();
+
     mutate(state => {
         state.products = products;
     });
 });
 
 export const addProduct = action('add-products', async (data, mutate) => {
-    const newProduct = await MongodbService.storeProduct(data)
+    const newProduct = await MongodbService.storeProduct(data);
     mutate(state => {
         state.products.push(newProduct);
     });

@@ -9,9 +9,11 @@ defineProps({
 });
 </script>
 <style lang="scss" scoped>
-.no-date-component {
+.no-data-component {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  background-color: var(--secondary-color);
 }
 </style>

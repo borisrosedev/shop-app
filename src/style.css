@@ -3,6 +3,7 @@
 
 :root {
     --primary-color: rgb(0, 179, 255);
+    --secondary-color: rgb(255, 255, 255);
 }
 
 * {
@@ -15,8 +16,10 @@ html {
 
 }
 
+
 body {
     margin: 0;
+    background-color: beige;
 }
 
 ul {
@@ -59,7 +62,9 @@ img {
     height: 100%;
 }
 
-
-body {
-    background-color: beige;
+figure {
+    padding: 0;
+    margin: 0;
 }
+
+

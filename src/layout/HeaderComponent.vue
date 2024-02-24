@@ -1,7 +1,7 @@
 <template>
   <header class="app__header">
     <figure>
-      <img src="../assets/coffee.png" alt="logo du shop" />
+      <img src="../assets/painting.png" alt="logo du shop" />
     </figure>
     <nav>
       <ul>

@@ -1,6 +1,9 @@
 <template>
   <main class="main home__main">
     <TitleComponent :text-content="'Page d\'accueil'" h-type="h1" />
+    <section class="home__animation">
+        <CubeComponent />
+    </section>
     <section class="home__message">
       <MessageComponent
         :title="'Bienvenue'"
@@ -27,6 +30,7 @@ import MessageComponent from "../components/MessageComponent.vue";
 import ButtonComponent from "../components/ButtonComponent.vue";
 import { useRouter } from "vue-router";
 import TitleComponent from "../components/TitleComponent.vue";
+import CubeComponent from "../components/extra/CubeComponent.vue";
 
 const router = useRouter();
 
@@ -48,7 +52,19 @@ const onLoginClick = () => {
     width: 500px;
     align-self: center;
     margin: 30px 0;
+
   }
+
+  &__animation {
+
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    
+
+  }
+
 
   &__actions {
     margin-block: 10px;

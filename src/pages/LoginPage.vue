@@ -19,7 +19,7 @@
   </main>
 </template>
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, reactive } from "vue";
 import TitleComponent from "../components/TitleComponent.vue";
 import FormComponent from "../components/FormComponent.vue";
 import { useChecker } from "../composables/useChecker";

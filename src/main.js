@@ -40,10 +40,12 @@ const routes = [
   },
   {
     path: "/login",
+    name:"login",
     component: LoginPage,
   },
   {
     path: "/products",
+    name:"products",
     component: ProductsPage,
   },
   {
